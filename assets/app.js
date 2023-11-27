@@ -74,15 +74,6 @@ function nextQuestion() {
         console.log(answerSheet);
     };
 };
-// function submitAns() {
-//     // Submits the answer and moves to the next question
-//     if (typeof pickedAnswer === "boolean") {
-//         answerSheet[onQuestion] = pickedAnswer;
-//         console.log(`Answer Submitted: ${answerSheet[onQuestion]}`);
-//     } else {
-//         console.log("No Answer Selected");
-//     };
-// };
 function endQuiz() {
     // Ends the quiz and deploys the end screen
     questionsScreen.classList.add("hide");
