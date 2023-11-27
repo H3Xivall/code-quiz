@@ -92,4 +92,4 @@ const questions = [
 ];
 
 // Export Questions Array
-module.exports = questions;
+export default questions;

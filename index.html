@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="assets/style.css">
     <title>Code Assessment</title>
 </head>
 <body>
@@ -11,8 +12,30 @@
         <div class="column" id="head">Coding Assessment</div>
         <div class="column" id="timer"></div>
     </header>
-    <main class="container"></main>
-    <footer class="container"></footer>
-    <script src="assets/app.js"></script>
+    <main class="container">
+        <div class="column" id="start-screen">
+            <h1>Start Quiz</h1>
+            <p>Welcome to my JavaScript quiz. For the following questions you will be able to pick one answer of four multiple choice. Only one answer is correct. Your score will be tallied at the end of the test and applied to the high scores menu. The quiz is timed. You have an infinite amount of attempts. You may start at anytime.</p>
+            <button id="start">Start</button>
+        </div>
+        <div class="column hide" id="questions-screen">
+            <div class="column" id="question"></div>
+            <div class="column" id="answers">
+            </div>
+            <div class="row" id="buttons">
+                <button id="prev"></button>
+                <button id="next"></button>
+            </div>
+        </div>
+        <div class="column hide" id="end-screen">
+            <h1>Quiz Complete</h1>
+            <p>Your score is <span id="score"></span>. Please enter your initials below to save your score.</p>
+            <form id="initials-form">
+                <input type="text" id="initials" placeholder="Enter Initials">
+                <button id="submit">Submit</button>
+            </form>
+    </main>
+    <footer class="container hide" id="footer"></footer>
+    <script  type="module" src="assets/app.js"></script>
 </body>
 </html>

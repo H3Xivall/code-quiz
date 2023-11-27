@@ -1,10 +1,6 @@
-//Coding Assessment
+// Coding Quiz
 
-// Import Questions
-const questions = require('./questions.js');
-// Use the 'questions' array here
+// Import Questions Array
+import questions from './questions.js';
+
 console.log(questions);
-
-
-// Function to randomize the answer order
-
