@@ -17,12 +17,11 @@ const startBtn = document.getElementById("start");
 const nextBtn = document.getElementById("next");
 const prevBtn = document.getElementById("prev");
 const submitBtn = document.getElementById("submit");
-const answerSheet = [true];
+const answerSheet = [];
 let scoreCount = 0;
-let clickCount = 0;
 let currentAnswer = 0;
 let onQuestion = 0;
-let pickedAnswer = false;
+let pickedAnswer = 'false';
 
 // Page Content
 document.body.onload = function () {
@@ -48,9 +47,42 @@ function startQuiz() {
     clock(timerCountDown);
     genQA(onQuestion)
 };
-function prevQuestion() {};
-function nextQuestion() {};
-function submitAns() {};
+function prevQuestion() {
+    // Goes to the previous question
+    if (onQuestion === 0) {
+        console.log("This is the first question");
+    } else {
+        clearScreen();
+        onQuestion--;
+        console.log('Previous Question');
+        genQA(onQuestion);
+    }
+};
+function nextQuestion() {
+    // Goes to the next question
+    if (onQuestion === questions.length - 1) {
+        clearScreen();
+        endQuiz();
+        console.log("This is the last question");
+    } else {
+        clearScreen();
+        answerSheet[onQuestion] = pickedAnswer;
+        onQuestion++;
+        console.log('Next Question');
+        genQA(onQuestion);
+        pickedAnswer = 'false';
+        console.log(answerSheet);
+    };
+};
+// function submitAns() {
+//     // Submits the answer and moves to the next question
+//     if (typeof pickedAnswer === "boolean") {
+//         answerSheet[onQuestion] = pickedAnswer;
+//         console.log(`Answer Submitted: ${answerSheet[onQuestion]}`);
+//     } else {
+//         console.log("No Answer Selected");
+//     };
+// };
 function endQuiz() {
     // Ends the quiz and deploys the end screen
     questionsScreen.classList.add("hide");
@@ -107,6 +139,7 @@ function checkAnswer() {
     let correct = this.getAttribute("data-correct");
     console.log(`The answer is ${correct}`);
     pickedAnswer = correct;
+    console.log(`Picked Answer: ${pickedAnswer}`);
 };
 function scoreFormat() {};
 function genQA(i) {
@@ -122,11 +155,7 @@ function genQA(i) {
 function createButton(text) {
     // Creates My Buttons because I am lazy
     const btn = document.createElement("button");
-    if (text === "next" && typeof answerSheet[onQuestion] === "undefined") {
-        btn.textContent = "Submit";
-        btn.onclick = submitAns;
-        nextBtn.appendChild(btn);        
-    } else if (text === "next" && typeof answerSheet[onQuestion] === "boolean") {
+    if (text === "next") {
         btn.textContent = "Next";
         btn.onclick = nextQuestion;
         nextBtn.appendChild(btn);
@@ -140,3 +169,11 @@ function createButton(text) {
         submitBtn.appendChild(btn);
     };
 };
+function clearScreen() {
+    // Clears the Screen
+    questionText.textContent = "";
+    answerScreen.textContent = "";
+    nextBtn.textContent = "";
+    prevBtn.textContent = "";
+    submitBtn.textContent = "";
+}
