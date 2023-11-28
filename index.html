@@ -16,7 +16,7 @@
         <div class="column" id="start-screen">
             <h1>Start Quiz</h1>
             <p>Welcome to my JavaScript quiz. For the following questions you will be able to pick one answer of four multiple choice. Only one answer is correct. Your score will be tallied at the end of the test and applied to the high scores menu. The quiz is timed. You have an infinite amount of attempts. You may start at anytime.</p>
-            <button id="start">Start</button>
+            <div id="start"></div>
         </div>
         <div class="column hide" id="questions-screen">
             <div class="column" id="question"></div>
@@ -29,10 +29,10 @@
         </div>
         <div class="column hide" id="end-screen">
             <h1>Quiz Complete</h1>
-            <p>Your score is <span id="score"></span>. Please enter your initials below to save your score.</p>
+            <p id="score"></p>
             <form id="initials-form">
                 <input type="text" id="initials" placeholder="Enter Initials">
-                <div id="submit"></div>
+                <button id="submit"></button>
             </form>
     </main>
     <footer class="container hide" id="footer"></footer>
